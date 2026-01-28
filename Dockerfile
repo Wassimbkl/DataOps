@@ -1,4 +1,4 @@
-# Utiliser l'image Python 3.13 (ou autre version selon ta préférence)
+# Utiliser l'image Python 3.13
 FROM python:3.13.5-slim
 
 # Définir le répertoire de travail dans le conteneur
