@@ -14,6 +14,7 @@ COUNTRY_MAPPING = {
 }
 
 DATE_REGEX = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+EMAIL_REGEX = re.compile(r".+@.+\..+")
 
 
 def clean_data(df: pd.DataFrame) -> pd.DataFrame:
@@ -23,10 +24,7 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     df = df[df["full_name"] != ""]
 
     df["email"] = df["email"].astype(str).str.strip()
-    df = df[
-        df["email"].str.contains("@", na=False)
-        & df["email"].str.split("@").str[1].str.contains(".", na=False)
-    ]
+    df = df[df["email"].str.fullmatch(EMAIL_REGEX, na=False)]
 
     df["signup_date"] = df["signup_date"].astype(str)
     df = df[df["signup_date"].str.match(DATE_REGEX)]
@@ -38,9 +36,7 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     df["age"] = pd.to_numeric(df["age"], errors="coerce")
     df = df[(df["age"] >= 16) & (df["age"] <= 95)]
 
-    df["last_purchase_amount"] = pd.to_numeric(
-        df["last_purchase_amount"], errors="coerce"
-    )
+    df["last_purchase_amount"] = pd.to_numeric(df["last_purchase_amount"], errors="coerce")
     df = df[df["last_purchase_amount"] >= 0]
 
     df["loyalty_tier"] = df["loyalty_tier"].astype(str).str.upper().str.strip()
