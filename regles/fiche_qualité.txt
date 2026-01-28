@@ -1,0 +1,31 @@
+## customer_id
+-Unique
+-Integer
+
+## full_name
+- Obligatoire
+- Non vide
+
+## email
+- Obligatoire
+- Doit contenir "@" et un domaine
+
+## signup_date
+- Format YYYY-MM-DD
+- Chaîne bien formée (pas de validation calendaire stricte)
+
+## country
+- Code pays standardisé (FR, DE, ES, IT, US, etc.)
+- Normalisation des variantes
+
+## age
+- Numérique
+- Valeur raisonnable (<= 100)
+
+## last_purchase_amount
+- Numérique
+- >= 0
+
+## loyalty_tier
+- Valeurs autorisées : BRONZE, SILVER, GOLD
+

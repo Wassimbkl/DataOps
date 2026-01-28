@@ -1,0 +1,6 @@
+customer_id,full_name,email,signup_date,country,age,last_purchase_amount,loyalty_tier
+2001,Paul Martin,paul.martin@example.com,2025-03-10,FR,45.0,250.0,GOLD
+2003,Marco Rossi,marco.rossi@example.com,2025-02-29,IT,38.0,120.0,GOLD
+2004,Sophie Durand,sophie.durand@example.com,2025-01-15,FR,16.0,40.0,BRONZE
+2006,Anna Kowalski,anna.k@example.com,2025-04-01,PL,29.0,60.0,GOLD
+2010,Paul Martin,paul.martin@example.com,2025-03-10,FR,45.0,250.0,GOLD

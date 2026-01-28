@@ -1,0 +1,12 @@
+customer_id,full_name,email,signup_date,country,age,last_purchase_amount,loyalty_tier
+1001,Marie Dupont,marie.dupont@example.com,2025-11-03,FR,29.0,120.5,GOLD
+1002,John Smith,john.smith@example,2025-10-15,FR,34.0,89.9,SILVER
+1007,Ahmed Ben Ali,ahmed.benali@example.com,2024-02-29,TN,25.0,300.0,GOLD
+1010,Anna Müller,anna.mueller@example.com,2025-07-18,DE,28.0,19.99,SILVER
+1011,Marie Dupont,marie.dupont@example.com,2025-11-03,FR,29.0,120.5,GOLD
+1013,Inès Dubois,ines.dubois@example.com,2025-06-15,FR,33.0,9999999.99,GOLD
+1014,Carlos Lopez,carlos.lopez@example.com,2025-05-10,ES,40.0,12.5,SILVER
+1017,,no_name@example.com,2025-03-22,FR,22.0,25.0,SILVER
+1018,Jane Doe,jane.doe@example.com,2025-02-30,US,30.0,70.0,GOLD
+1019,Émile Moreau,emile.moreau@example.com,2025-01-15,FR,30.0,0.0,BRONZE
+1020,Lucie Petit,lucie.petit@example.com,2025-01-14,FR,30.0,0.0,BRONZE
