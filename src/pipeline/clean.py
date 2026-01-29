@@ -92,7 +92,7 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     df["email"] = df["email"].astype(str).str.strip().str.lower()
     before = len(df)
     df = df[df["email"].str.match(EMAIL_REGEX, na=False)]
-    print(f"📧 Emails invalides supprimés: {before - len(df)}")
+    print(f"Emails invalides supprimés: {before - len(df)}")
 
     # 4. Validation date d'inscription
     df["signup_date"] = df["signup_date"].astype(str).str.strip()
@@ -112,14 +112,14 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     )]
 
     df = df[df["country"].isin(VALID_COUNTRY_CODES)]
-    print(f"🌍 Pays invalides supprimés: {before - len(df)}")
+    print(f"Pays invalides supprimés: {before - len(df)}")
 
     # 6. Validation âge
     df["age"] = pd.to_numeric(df["age"], errors="coerce")
     before = len(df)
     df = df[df["age"].between(16, 95)]
     df["age"] = df["age"].astype(int)
-    print(f"👤 Ages invalides supprimés: {before - len(df)}")
+    print(f"Ages invalides supprimés: {before - len(df)}")
 
     # 7. Validation montant dernier achat
     df["last_purchase_amount"] = pd.to_numeric(df["last_purchase_amount"], errors="coerce")
@@ -129,13 +129,13 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
         (df["last_purchase_amount"] >= 0) &
         (df["last_purchase_amount"] <= 1_000_000)
     ]
-    print(f"💰 Montants invalides supprimés: {before - len(df)}")
+    print(f"Montants invalides supprimés: {before - len(df)}")
 
     # 8. Validation loyalty tier
     df["loyalty_tier"] = df["loyalty_tier"].astype(str).str.upper().str.strip()
     before = len(df)
     df = df[df["loyalty_tier"].isin(ALLOWED_TIERS)]
-    print(f"🏆 Tiers invalides supprimés: {before - len(df)}")
+    print(f"Tiers invalides supprimés: {before - len(df)}")
 
     # 9. Validation téléphone (optionnel)
     if "phone" in df.columns:
@@ -146,46 +146,9 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
             df["phone"].isna() |
             df["phone"].str.match(PHONE_REGEX, na=False)
         ]
-        print(f"📱 Téléphones invalides supprimés: {before - len(df)}")
+        print(f"Téléphones invalides supprimés: {before - len(df)}")
 
     print(f"Nombre de lignes finales: {len(df)}")
     print(f"Taux de rejet: {((initial_count - len(df)) / initial_count * 100):.2f}%")
 
     return df.reset_index(drop=True)
-
-
-# =========================
-# TEST LOCAL
-# =========================
-
-if __name__ == "__main__":
-
-    test_data = {
-        "customer_id": [1, 2, 3, 4, 5, 6, 7, 8],
-        "full_name": ["John Doe", "Jane Smith", "", "Bob Martin", "Alice", "null", "Test User", "A"],
-        "email": [
-            "john@example.com", "invalid-email", "jane@test.com", "bob@company.fr",
-            "alice@mail.com", "test@", "user@domain.co.uk", "bad@"
-        ],
-        "signup_date": [
-            "2024-01-15", "9999-99-99", "2023-06-20", "2024-02-30",
-            "2025-12-01", "2020-13-01", "2022-05-10", "invalid"
-        ],
-        "country": ["FRANCE", "FF", "US", "DE", "AA", "ZZ", "UK", "spain"],
-        "age": [25, 150, 30, 12, 45, -5, 22, "abc"],
-        "last_purchase_amount": [100.50, 50.00, -10, 2000000, 75.25, 0, 150.00, 25.99],
-        "loyalty_tier": ["GOLD", "platinum", "SILVER", "BRONZE", "gold", "invalid", "BRONZE", "silver"]
-    }
-
-    df_test = pd.DataFrame(test_data)
-
-    print("\n" + "=" * 60)
-    print("TEST DE NETTOYAGE")
-    print("=" * 60 + "\n")
-
-    df_clean = clean_data(df_test)
-
-    print("\n" + "=" * 60)
-    print("DONNÉES NETTOYÉES")
-    print("=" * 60)
-    print(df_clean)

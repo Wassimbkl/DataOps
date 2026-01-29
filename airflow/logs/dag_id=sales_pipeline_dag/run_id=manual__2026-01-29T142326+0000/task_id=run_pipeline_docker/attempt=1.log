@@ -1,0 +1,56 @@
+[2026-01-29T14:23:29.871+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-01-29T14:23:29.946+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sales_pipeline_dag.run_pipeline_docker manual__2026-01-29T14:23:26+00:00 [queued]>
+[2026-01-29T14:23:29.959+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sales_pipeline_dag.run_pipeline_docker manual__2026-01-29T14:23:26+00:00 [queued]>
+[2026-01-29T14:23:29.960+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-01-29T14:23:29.989+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): run_pipeline_docker> on 2026-01-29 14:23:26+00:00
+[2026-01-29T14:23:30.008+0000] {standard_task_runner.py:64} INFO - Started process 1042 to run task
+[2026-01-29T14:23:30.016+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'sales_pipeline_dag', 'run_pipeline_docker', 'manual__2026-01-29T14:23:26+00:00', '--job-id', '31', '--raw', '--subdir', 'DAGS_FOLDER/sales_pipeline_dag.py', '--cfg-path', '/tmp/tmpzocznuse']
+[2026-01-29T14:23:30.027+0000] {standard_task_runner.py:91} INFO - Job 31: Subtask run_pipeline_docker
+[2026-01-29T14:23:30.237+0000] {task_command.py:426} INFO - Running <TaskInstance: sales_pipeline_dag.run_pipeline_docker manual__2026-01-29T14:23:26+00:00 [running]> on host 7c1d54b766a9
+[2026-01-29T14:23:30.823+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='sales_pipeline_dag' AIRFLOW_CTX_TASK_ID='run_pipeline_docker' AIRFLOW_CTX_EXECUTION_DATE='2026-01-29T14:23:26+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-01-29T14:23:26+00:00'
+[2026-01-29T14:23:30.824+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-01-29T14:23:30.847+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-01-29T14:23:30.849+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '\n        docker run --rm           mon_projet_dataops:latest           python src/run_pipeline.py --input raw/customers_dirty3.csv\n        ']
+[2026-01-29T14:23:30.878+0000] {subprocess.py:86} INFO - Output:
+[2026-01-29T14:23:32.454+0000] {subprocess.py:93} INFO - Processing customers_dirty3.csv...
+[2026-01-29T14:23:32.456+0000] {subprocess.py:93} INFO - Nombre de lignes initiales: 20
+[2026-01-29T14:23:32.457+0000] {subprocess.py:93} INFO - Doublons supprimés: 0
+[2026-01-29T14:23:32.458+0000] {subprocess.py:93} INFO -  Noms invalides supprimés: 2
+[2026-01-29T14:23:32.459+0000] {subprocess.py:93} INFO - 📧 Emails invalides supprimés: 2
+[2026-01-29T14:23:32.460+0000] {subprocess.py:93} INFO -  Dates invalides supprimées: 2
+[2026-01-29T14:23:32.461+0000] {subprocess.py:93} INFO - 🌍 Pays invalides supprimés: 1
+[2026-01-29T14:23:32.463+0000] {subprocess.py:93} INFO - 👤 Ages invalides supprimés: 2
+[2026-01-29T14:23:32.464+0000] {subprocess.py:93} INFO - 💰 Montants invalides supprimés: 3
+[2026-01-29T14:23:32.465+0000] {subprocess.py:93} INFO - 🏆 Tiers invalides supprimés: 2
+[2026-01-29T14:23:32.466+0000] {subprocess.py:93} INFO - Nombre de lignes finales: 6
+[2026-01-29T14:23:32.467+0000] {subprocess.py:93} INFO - Taux de rejet: 70.00%
+[2026-01-29T14:23:32.468+0000] {subprocess.py:93} INFO - Processing customers_dirty2.csv...
+[2026-01-29T14:23:32.470+0000] {subprocess.py:93} INFO - Nombre de lignes initiales: 10
+[2026-01-29T14:23:32.471+0000] {subprocess.py:93} INFO - Doublons supprimés: 0
+[2026-01-29T14:23:32.472+0000] {subprocess.py:93} INFO -  Noms invalides supprimés: 0
+[2026-01-29T14:23:32.474+0000] {subprocess.py:93} INFO - 📧 Emails invalides supprimés: 1
+[2026-01-29T14:23:32.475+0000] {subprocess.py:93} INFO -  Dates invalides supprimées: 2
+[2026-01-29T14:23:32.475+0000] {subprocess.py:93} INFO - 🌍 Pays invalides supprimés: 0
+[2026-01-29T14:23:32.476+0000] {subprocess.py:93} INFO - 👤 Ages invalides supprimés: 1
+[2026-01-29T14:23:32.477+0000] {subprocess.py:93} INFO - 💰 Montants invalides supprimés: 1
+[2026-01-29T14:23:32.479+0000] {subprocess.py:93} INFO - 🏆 Tiers invalides supprimés: 1
+[2026-01-29T14:23:32.480+0000] {subprocess.py:93} INFO - Nombre de lignes finales: 4
+[2026-01-29T14:23:32.481+0000] {subprocess.py:93} INFO - Taux de rejet: 60.00%
+[2026-01-29T14:23:32.482+0000] {subprocess.py:93} INFO - Processing customers_dirty.csv...
+[2026-01-29T14:23:32.483+0000] {subprocess.py:93} INFO - Nombre de lignes initiales: 10
+[2026-01-29T14:23:32.484+0000] {subprocess.py:93} INFO - Doublons supprimés: 0
+[2026-01-29T14:23:32.484+0000] {subprocess.py:93} INFO -  Noms invalides supprimés: 0
+[2026-01-29T14:23:32.485+0000] {subprocess.py:93} INFO - 📧 Emails invalides supprimés: 1
+[2026-01-29T14:23:32.485+0000] {subprocess.py:93} INFO -  Dates invalides supprimées: 1
+[2026-01-29T14:23:32.487+0000] {subprocess.py:93} INFO - 🌍 Pays invalides supprimés: 0
+[2026-01-29T14:23:32.488+0000] {subprocess.py:93} INFO - 👤 Ages invalides supprimés: 2
+[2026-01-29T14:23:32.489+0000] {subprocess.py:93} INFO - 💰 Montants invalides supprimés: 1
+[2026-01-29T14:23:32.490+0000] {subprocess.py:93} INFO - 🏆 Tiers invalides supprimés: 0
+[2026-01-29T14:23:32.491+0000] {subprocess.py:93} INFO - Nombre de lignes finales: 5
+[2026-01-29T14:23:32.492+0000] {subprocess.py:93} INFO - Taux de rejet: 50.00%
+[2026-01-29T14:23:33.059+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-01-29T14:23:33.061+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-01-29T14:23:33.148+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=sales_pipeline_dag, task_id=run_pipeline_docker, run_id=manual__2026-01-29T14:23:26+00:00, execution_date=20260129T142326, start_date=20260129T142329, end_date=20260129T142333
+[2026-01-29T14:23:33.251+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-01-29T14:23:33.298+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-01-29T14:23:33.302+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
